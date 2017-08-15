@@ -20,7 +20,7 @@
 		<!-- Header -->
 			<header id="header">
 				<div class="inner">
-					<a href="#" class="image avatar"><img src="images/avatar.jpg" alt="" /></a>
+					<a href="#" class="image avatar"><img  id ="imgavat" src="images/avatar.jpg" alt="" /></a>
 					<h1><strong>Welcome to Bacasi,</strong><br /> a super simple self help site that not<br /> only helps the you understand<br /> yourself,
 						but grow in areas<br /> where you are weak.
 					</h1>
@@ -41,7 +41,7 @@
 					</section>
 					<!-- Large modal -->
 		<button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-			Login modal</button>
+			Login</button>
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
 			aria-hidden="true">
 			<div class="modal-dialog modal-lg">
@@ -152,6 +152,7 @@
 									</div>
 									<div class="col-md-12">
 										<div class="g-signin2" data-onsuccess="onSignIn"></div>
+										<a href="#" onclick="onSignOut();">Sign out</a>
 									</div>
 								</div>
 							</div>
@@ -603,8 +604,17 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 						var profile = googleUser.getBasicProfile();
 						console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
 						console.log('Name: ' + profile.getName());
-						console.log('Image URL: ' + profile.getImageUrl());
+						$("#imgavat").attr("src", profile.getImageUrl());
 						console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+				}
+				function onSignOut() {
+					//should sign user out and toggleHidden
+					var auth2 = gapi.auth2.getAuthInstance();
+					auth2.signOut().then(function () {
+						console.log('User signed out.')
+						//setting back to default
+						$("#imgavat").attr("src", "images/avatar.jpg");
+					});
 				}
 			</script>
 	</body>
