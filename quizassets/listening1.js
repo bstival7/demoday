@@ -34,11 +34,11 @@ var cat5name = "5";
 var cat11name = "None";            
             
 
-var cat1 = ($("#q1").val() != "a"); 
+var cat1 = ($("#q1").val() != "c"); 
            
-var cat2 = ($("#q2").val() != "b");  
+var cat2 = ($("#q2").val() != "a");  
 
-var cat3 = ($("#q3").val() != "c");  
+var cat3 = ($("#q3").val() != "b");  
 
 var cat4 = ($("#q4").val() != "d");  
 
@@ -52,7 +52,6 @@ if (cat3) { categories.push(cat3name) };
 if (cat4) { categories.push(cat4name) };            
 if (cat5) { categories.push(cat5name) };                
 if (cat11) { categories.push(cat11name) };                        
-
 var catStr = 'You answered the following questions incorrectly: ' + categories.join(', ') + '';                     
 $("#categorylist").text(catStr);                        
 $("#categorylist").show("slow");            

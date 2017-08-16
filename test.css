@@ -22,3 +22,12 @@
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
+
+body {
+    background-image: url("https://s-media-cache-ak0.pinimg.com/originals/60/d8/40/60d8402865d33e38726eb91a093b86bb.jpg");
+    background-color: #cccccc;
+    background-position: center;
+    background-size: cover;
+    color: white;
+
+}
