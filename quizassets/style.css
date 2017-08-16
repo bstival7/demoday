@@ -9,10 +9,10 @@ cursor: pointer;
 
 #results { 
 background: #dddada; 
-color: 000000; 
+color: black;
 padding: 3px; 
 text-align: center; 
-width: 200px; 
+width: 53px; 
 cursor: pointer; 
 border: 1px solid gray; 
 }
