@@ -23,7 +23,11 @@
 					<a href="#" class="image avatar"><img  id ="imgavat" src="images/avatar.jpg" alt="" /></a>
 					<h1><strong>WELCOME</strong>
 					</h1>
+					<div class="email">
+						<p>Sign in!</p>
 					</div>
+					</div>
+
 				</div>
 				<div class="container">
  					<div class="progress">
@@ -620,6 +624,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 						console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
 						console.log('Name: ' + profile.getName());
 						$("#imgavat").attr("src", profile.getImageUrl());
+						$(".email").text(profile.getEmail());
 						console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 				}
 				function onSignOut() {
@@ -629,6 +634,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 						console.log('User signed out.')
 						//setting back to default
 						$("#imgavat").attr("src", "images/avatar.jpg");
+						$(".email").text('Sign in!');
 					});
 				}
 			</script>
