@@ -1,4 +1,4 @@
-.back {
+.button {
     background-color: #008CBA;
     border-radius: 50%;
     color: black;
@@ -10,24 +10,35 @@
     font-size: 12px;
      -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
+    margin: 0 auto;
 }
 
-.back:hover {
+.button:hover {
     background-color: #008CBA;
     color: white;
 }
 
-.back:active {
+.button:active {
  background-color: #008CBA;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
 
-body {
+html {
     background-image: url("https://s-media-cache-ak0.pinimg.com/originals/60/d8/40/60d8402865d33e38726eb91a093b86bb.jpg");
     background-color: #cccccc;
     background-position: center;
     background-size: cover;
-    color: white;
+    font-size: 68px;
 
+}
+.hu{
+    text-align: center;
+}
+.hi{
+    text-align: center;
+    color: white;
+}
+.wrapper {
+    text-align: center;
 }
