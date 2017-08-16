@@ -12,14 +12,16 @@
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
+		<meta name="google-signin-client_id" content="405592219152-u2akqkk3k8bj5q7vpkohcvavm6o2gmj7.apps.googleusercontent.com">
 	</head>
 	<body id="top">
 
 		<!-- Header -->
 			<header id="header">
 				<div class="inner">
-					<a href="#" class="image avatar"><img src="images/avatar.jpg" alt="" /></a>
-					<h1><strong>Welcome to Bacasi,</strong>
+					<a href="#" class="image avatar"><img  id ="imgavat" src="images/avatar.jpg" alt="" /></a>
+					<h1><strong>WELCOME</strong>
 					</h1>
 					</div>
 				</div>
@@ -63,19 +65,18 @@
 						<p>Our app name is Bacasi. Bacasi is a self-reflective/improvement app. 
 							Its purpose is to assess the user, through questioning, on their personality. 
 							With the results from the self assessment, the user can act on improving their flaws to become a more well-rounded individual.</p>
-							Bacasi is a super simple self help site that not only helps the you understand yourself, but grow in areas where you are weak.
 					</section>
 					<!-- Large modal -->
-		<button class="btn btn-primary" data-toggle="modal" data-target="#myModl">
-			Login modal</button>
-		<div class="modal fade" id="myModl" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+		<button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+			Login</button>
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
 			aria-hidden="true">
 			<div class="modal-dialog modal-lg">
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 							×</button>
-						<h4 class="modal-title" id="myModlLabel">
+						<h4 class="modal-title" id="myModalLabel">
 							Login/Registration - Bacasi</h4>
 					</div>
 					<div class="modal-body">
@@ -177,10 +178,8 @@
 											Sign in with</h3>
 									</div>
 									<div class="col-md-12">
-										<div class="btn-group btn-group-justified">
-											<a href="#" class="btn btn-primary">Facebook</a> <a href="#" class="btn btn-danger">
-												Google</a>
-										</div>
+										<div class="g-signin2" data-onsuccess="onSignIn"></div>
+										<a href="#" onclick="onSignOut();">Sign out</a>
 									</div>
 								</div>
 							</div>
@@ -626,6 +625,23 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 			<script>
 				$('#myModal').modal('show');
+				function onSignIn(googleUser) {
+						console.log("test");
+						var profile = googleUser.getBasicProfile();
+						console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+						console.log('Name: ' + profile.getName());
+						$("#imgavat").attr("src", profile.getImageUrl());
+						console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+				}
+				function onSignOut() {
+					//should sign user out and toggleHidden
+					var auth2 = gapi.auth2.getAuthInstance();
+					auth2.signOut().then(function () {
+						console.log('User signed out.')
+						//setting back to default
+						$("#imgavat").attr("src", "images/avatar.jpg");
+					});
+				}
 			</script>
 	</body>
 </html>
