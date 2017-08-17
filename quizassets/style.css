@@ -7,12 +7,16 @@ margin-left: 0.5em;
 cursor: pointer; 
 } 
 
+.question{
+    font-size: 70px;
+}
+
 #results { 
 background: #dddada; 
 color: black;
 padding: 3px; 
 text-align: center; 
-width: 53px; 
+width: 111px;
 cursor: pointer; 
 border: 1px solid gray; 
 }
